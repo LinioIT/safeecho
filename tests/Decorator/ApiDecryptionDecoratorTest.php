@@ -11,7 +11,7 @@ class ApiDecryptionDecoratorTest extends TestCase
 {
     public function testWrap()
     {
-        $linioWrapper = new ApiDecryptionDecorator('http://url.url', 'NotSoSecretEncryptionKey');
+        $linioWrapper = new ApiDecryptionDecorator('http://url.url', 'NotSoSecretEncryptionKey', MCRYPT_RIJNDAEL_128, MCRYPT_MODE_CBC);
 
         $openString = 'Print me!';
 
@@ -28,7 +28,7 @@ class ApiDecryptionDecoratorTest extends TestCase
 
     public function testWrapWithData()
     {
-        $linioWrapper = new ApiDecryptionDecorator('http://url.url', 'NotSoSecretEncryptionKey');
+        $linioWrapper = new ApiDecryptionDecorator('http://url.url', 'NotSoSecretEncryptionKey', MCRYPT_RIJNDAEL_128, MCRYPT_MODE_CBC);
 
         $openString = 'Print me!';
 

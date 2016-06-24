@@ -35,8 +35,8 @@ class ApiDecryptionDecorator extends SafeEchoDecorator
     public function __construct(
         string $decryptionServerUri,
         string $encryptionKey,
-        string $encryptionAlgorithm = MCRYPT_3DES,
-        string $encryptionMode = MCRYPT_MODE_CBC
+        string $encryptionAlgorithm,
+        string $encryptionMode
     ) {
         $this->encryptionKey = $encryptionKey;
         $this->encryptionAlgorithm = $encryptionAlgorithm;
@@ -134,8 +134,8 @@ class ApiDecryptionDecorator extends SafeEchoDecorator
     private function encrypt(
         string $word,
         string $encryptionKey,
-        string $encryptionAlgorithm = MCRYPT_3DES,
-        string $encryptionMode = MCRYPT_MODE_CBC
+        string $encryptionAlgorithm,
+        string $encryptionMode
     ): string {
         $ivSize = mcrypt_get_iv_size($encryptionAlgorithm, $encryptionMode);
 

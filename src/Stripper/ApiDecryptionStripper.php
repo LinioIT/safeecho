@@ -29,8 +29,8 @@ class ApiDecryptionStripper
      */
     public function __construct(
         string $encryptionKey,
-        string $encryptionAlgorithm = MCRYPT_3DES,
-        string $encryptionMode = MCRYPT_MODE_CBC
+        string $encryptionAlgorithm,
+        string $encryptionMode
     ) {
         $this->encryptionKey = $encryptionKey;
         $this->encryptionAlgorithm = $encryptionAlgorithm;
@@ -58,8 +58,8 @@ class ApiDecryptionStripper
     private function decrypt(
         string $encrypted,
         string $encryptionKey,
-        string $encryptionAlgorithm = MCRYPT_3DES,
-        string $encryptionMode = MCRYPT_MODE_CBC
+        string $encryptionAlgorithm,
+        string $encryptionMode
     ): string {
         $ivSize = mcrypt_get_iv_size($encryptionAlgorithm, $encryptionMode);
 
