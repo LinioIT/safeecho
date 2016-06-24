@@ -31,9 +31,9 @@ class ConfigurationFactory
      *
      * @throws FileNotFoundException
      *
-     * @return AbstractConfig
+     * @return SafeEchoDefaultConfig
      */
-    public static function create(): AbstractConfig
+    public static function create(): SafeEchoDefaultConfig
     {
         $configuration = self::recurseExtensions();
 

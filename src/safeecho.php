@@ -5,7 +5,7 @@ declare(strict_types=1);
 use Linio\SafeEcho\Exception\InvalidConfigurationFileException;
 use Linio\SafeEcho\Factory\ConfigurationFactory;
 use Linio\SafeEcho\Factory\DecoratorFactory;
-use Noodlehaus\AbstractConfig;
+use Linio\SafeEcho\Factory\SafeEchoDefaultConfig;
 use Noodlehaus\Exception\FileNotFoundException;
 
 /**
@@ -32,12 +32,11 @@ function safeecho($string, $data = null, bool $return = false)
 
         echo $output;
     } else {
-
         //assert $string is a string
         $string = (string) $string;
 
         //get configuration: merges with default values, so decorator and hideChar are guaranteed to exist.
-        /** @var AbstractConfig $configuration */
+        /** @var SafeEchoDefaultConfig $configuration */
         $configuration = ConfigurationFactory::create();
 
         $decorator = DecoratorFactory::create($configuration->get('decorator'));
