@@ -1,0 +1,8 @@
+# Project
+/vendor/
+/bin/
+/.idea
+/phpunit.xml
+
+# Misc.
+.php_cs.cache
