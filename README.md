@@ -39,6 +39,8 @@ Accepted file names are:
 
 Configuration files are searched for in the above order. The first configuration file found, is the configuration that is used.
 
+Please see [safeecho Configuration File](CONFIG.md) for configuration file examples.
+
 The recommended location for the configuration is the project root directory.
 
 ###Sample YAML Configuration Files
