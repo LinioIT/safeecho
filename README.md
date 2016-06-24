@@ -39,6 +39,8 @@ Accepted file names are:
 
 Configuration files are searched for in the above order. The first configuration file found, is the configuration that is used.
 
+The recommended location for the configuration is the project root directory.
+
 ###Sample YAML Configuration Files
 
 `safeecho.yml`
@@ -47,6 +49,7 @@ decorator: Linio\SafeEcho\Decorator\MouseHoverDecorator
 ```
 
 If you want to change the 'hideChar'
+
 `safeecho.yml`
 ```
 decorator: Linio\SafeEcho\Decorator\MouseHoverDecorator
@@ -58,6 +61,7 @@ hideChar: '~'
 
 To use your own custom Decorator:
 * `YourCustomDecorator` must extend `SafeEchoDecorator`
+
 `safeecho.yml`
 ```
 decorator:
