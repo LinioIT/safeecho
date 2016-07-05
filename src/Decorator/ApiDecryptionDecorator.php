@@ -112,7 +112,7 @@ class ApiDecryptionDecorator extends SafeEchoDecorator
             $this->decryptionServerUri
         );
 
-        $span = '<span style="cursor: pointer;" onclick=\'%1$s(this, "%2$s"); %3$s\'>%4$s</span >';
+        $span = '<span style="cursor: pointer;" onclick=\'%s(this, "%s"); %s\'>%s</span >';
 
         return sprintf(
             $span,
