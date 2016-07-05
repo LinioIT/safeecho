@@ -10,7 +10,6 @@ use Linio\SafeEcho\Decorator\MouseHoverDecorator;
 use Linio\SafeEcho\Decorator\SafeEchoDecorator;
 use Linio\SafeEcho\Factory\DecoratorFactory;
 use PHPUnit\Framework\TestCase;
-use TypeError;
 
 class DecoratorFactoryTest extends TestCase
 {
@@ -52,7 +51,7 @@ class DecoratorFactoryTest extends TestCase
     }
 
     /**
-     * @expectedException TypeError
+     * @expectedException \Linio\SafeEcho\Exception\InvalidConfigurationFileException
      */
     public function testExceptionWhenNotSafeEchoDecorator()
     {
@@ -70,7 +69,7 @@ class DecoratorFactoryTest extends TestCase
     }
 
     /**
-     * @expectedException TypeError
+     * @expectedException \Linio\SafeEcho\Exception\InvalidConfigurationFileException
      */
     public function testExceptionOnClassDoesNotExistFromString()
     {
@@ -79,7 +78,7 @@ class DecoratorFactoryTest extends TestCase
     }
 
     /**
-     * @expectedException TypeError
+     * @expectedException \Linio\SafeEcho\Exception\InvalidConfigurationFileException
      */
     public function testExceptionOnClassDoesNotExistFromArray()
     {
@@ -90,7 +89,7 @@ class DecoratorFactoryTest extends TestCase
     }
 
     /**
-     * @expectedException TypeError
+     * @expectedException \Linio\SafeEcho\Exception\InvalidConfigurationFileException
      */
     public function testExceptionOnEmptyArray()
     {
