@@ -41,9 +41,9 @@ class DecoratorFactory
     /**
      * @param string $decoratorClassName
      *
-     * @return SafeEchoDecorator
+     * @return SafeEchoDecorator|null
      */
-    private static function createFromString(string $decoratorClassName): SafeEchoDecorator
+    private static function createFromString(string $decoratorClassName)
     {
         if (class_exists($decoratorClassName)) {
             return new $decoratorClassName();
@@ -55,9 +55,9 @@ class DecoratorFactory
     /**
      * @param array $decoratorConfiguration
      *
-     * @return SafeEchoDecorator
+     * @return SafeEchoDecorator|null
      */
-    private static function createFromArray(array $decoratorConfiguration): SafeEchoDecorator
+    private static function createFromArray(array $decoratorConfiguration)
     {
         if (array_key_exists('class', $decoratorConfiguration)) {
             $decoratorClassName = (string) $decoratorConfiguration['class'];
