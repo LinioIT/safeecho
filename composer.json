@@ -1,8 +1,8 @@
 {
-    "name": "linioit/safeecho",
+    "name": "linio/safeecho",
     "type": "library",
     "decription": "Lightweight function to easily hide printed data.",
-    "keywords": ["echo", "print", "secure", "safeecho", "safe echo", "safe print", "password", "encrypt"],
+    "keywords": ["linio", "echo", "print", "secure", "safeecho", "safe echo", "safe print", "password", "encrypt"],
     "license": "MIT",
     "authors": [
         {
