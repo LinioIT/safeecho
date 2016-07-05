@@ -11,8 +11,8 @@ use Noodlehaus\Exception\FileNotFoundException;
 /**
  * Outputs or returns a string by the definition of the decorator.
  *
- * @param mixed $string The string to safely output or return. Cannot be object or array. Other types will be cast to string.
- * @param mixed $data Extra data needed by the decorator.
+ * @param mixed $string The string to safely output or return. Cannot be object or array. Other types will be cast to string
+ * @param mixed $data Extra data needed by the decorator
  * @param bool $return Output or return. Output default
  *
  * @throws FileNotFoundException
