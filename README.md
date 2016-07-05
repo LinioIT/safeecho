@@ -14,14 +14,14 @@ With a configuration file
 
 #Installation
 The supported way of installing safeecho is via Composer.
-`composer require linioit\safeecho`
+`composer require linio\safeecho`
 
 ##Autoload function
 In the `composer.json` file, add or append to the "autoload" field,
 ```
 "autoload": {
     "files": [
-        "vendor/linioit/safeecho/src/safeecho.php"
+        "vendor/linio/safeecho/src/safeecho.php"
     ]
 }
 ```
