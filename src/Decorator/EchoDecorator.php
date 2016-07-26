@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Linio\SafeEcho\Decorator;
 
 class EchoDecorator extends SafeEchoDecorator
@@ -15,7 +13,7 @@ class EchoDecorator extends SafeEchoDecorator
      *
      * @return string
      */
-    public function wrap(string $openString, string $hiddenString, $data = null): string
+    public function wrap($openString, $hiddenString, $data = null)
     {
         return $openString;
     }
@@ -26,7 +24,7 @@ class EchoDecorator extends SafeEchoDecorator
      *
      * @return string
      */
-    public function hide(string $string, string $hiddenChar = '*')
+    public function hide($string, $hiddenChar = '*')
     {
         return $string;
     }

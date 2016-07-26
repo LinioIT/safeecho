@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Linio\SafeEcho\Decorator;
 
 class MouseHoverDecorator extends SafeEchoDecorator
@@ -15,7 +13,7 @@ class MouseHoverDecorator extends SafeEchoDecorator
      *
      * @return string
      */
-    public function wrap(string $openString, string $hiddenString, $data = null): string
+    public function wrap($openString, $hiddenString, $data = null)
     {
         return sprintf(
             '<span style="cursor: pointer;" onmouseout="this.innerHTML=\'%2$s\'" onmouseover="this.innerHTML=\'%1$s\'">%2$s</span>',

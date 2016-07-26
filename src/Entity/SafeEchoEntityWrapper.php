@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Linio\SafeEcho\Entity;
 
 use Error;
@@ -46,7 +44,7 @@ abstract class SafeEchoEntityWrapper
      *
      * @throws Error
      */
-    public function __call(string $name, array $arguments = null)
+    public function __call($name, array $arguments = null)
     {
         if (method_exists($this->getWrappedEntity(), $name)) {
             return $this->attemptSafeEcho(call_user_func_array([$this->getWrappedEntity(), $name], $arguments));
@@ -60,7 +58,7 @@ abstract class SafeEchoEntityWrapper
      *
      * @throws Error
      */
-    public function __get(string $name)
+    public function __get($name)
     {
         if (property_exists(get_class($this->getWrappedEntity()), $name)) {
             return $this->attemptSafeEcho($this->getWrappedEntity()->$name);
@@ -74,7 +72,7 @@ abstract class SafeEchoEntityWrapper
      *
      * @throws Error
      */
-    public function __set(string $name, $value)
+    public function __set($name, $value)
     {
         if (property_exists(get_class($this->getWrappedEntity()), $name)) {
             $this->getWrappedEntity()->$name = $value;
@@ -104,7 +102,7 @@ abstract class SafeEchoEntityWrapper
      *
      * @return string
      */
-    private function undefinedMethod(string $name): string
+    private function undefinedMethod($name)
     {
         return sprintf('Call to undefined method %s::%s()', get_class($this->wrappedEntity), $name);
     }
@@ -114,7 +112,7 @@ abstract class SafeEchoEntityWrapper
      *
      * @return string
      */
-    private function undefinedProperty(string $name): string
+    private function undefinedProperty($name)
     {
         return sprintf('Undefined property %s::$%s', get_class($this->wrappedEntity), $name);
     }

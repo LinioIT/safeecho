@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 use Linio\SafeEcho\Exception\InvalidConfigurationFileException;
 use Linio\SafeEcho\Factory\ConfigurationFactory;
 use Linio\SafeEcho\Factory\DecoratorFactory;
@@ -20,7 +18,7 @@ use Noodlehaus\Exception\FileNotFoundException;
  *
  * @return string
  */
-function safeecho($string, $data = null, bool $return = false)
+function safeecho($string, $data = null, $return = false)
 {
     // arrays and objects are currently outside the scope of this project. Return or dump them.
     if (is_object($string) || is_array($string)) {

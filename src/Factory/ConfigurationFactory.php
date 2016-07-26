@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Linio\SafeEcho\Factory;
 
 use Linio\SafeEcho\Decorator\NoWrapDecorator;
@@ -33,7 +31,7 @@ class ConfigurationFactory
      *
      * @return SafeEchoDefaultConfig
      */
-    public static function create(): SafeEchoDefaultConfig
+    public static function create()
     {
         $configuration = self::recurseExtensions();
 
@@ -51,7 +49,7 @@ class ConfigurationFactory
      *
      * @return AbstractConfig|null
      */
-    private static function recurseExtensions(int $idx = 0)
+    private static function recurseExtensions($idx = 0)
     {
         $extensions = self::getExtensions();
 

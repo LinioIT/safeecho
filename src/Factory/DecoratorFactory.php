@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Linio\SafeEcho\Factory;
 
 use Linio\SafeEcho\Decorator\SafeEchoDecorator;
@@ -17,7 +15,7 @@ class DecoratorFactory
      *
      * @return SafeEchoDecorator
      */
-    public static function create($decoratorConfiguration): SafeEchoDecorator
+    public static function create($decoratorConfiguration)
     {
         $decorator = null;
 
@@ -43,7 +41,7 @@ class DecoratorFactory
      *
      * @return SafeEchoDecorator|null
      */
-    private static function createFromString(string $decoratorClassName)
+    private static function createFromString($decoratorClassName)
     {
         if (class_exists($decoratorClassName)) {
             return new $decoratorClassName();

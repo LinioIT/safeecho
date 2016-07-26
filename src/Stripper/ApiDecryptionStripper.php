@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Linio\SafeEcho\Stripper;
 
 /* This class isn't necessarily meant for usage. Rather, just to show the other side of the ApiDecryptionDecorator. */
@@ -28,9 +26,9 @@ class ApiDecryptionStripper
      * @param $encryptionMode
      */
     public function __construct(
-        string $encryptionKey,
-        string $encryptionAlgorithm,
-        string $encryptionMode
+        $encryptionKey,
+        $encryptionAlgorithm,
+        $encryptionMode
     ) {
         $this->encryptionKey = $encryptionKey;
         $this->encryptionAlgorithm = $encryptionAlgorithm;
@@ -42,9 +40,14 @@ class ApiDecryptionStripper
      *
      * @return string
      */
-    public function unwrap(string $encryptedString): string
+    public function unwrap($encryptedString)
     {
-        return $this->decrypt($encryptedString, $this->encryptionKey, $this->encryptionAlgorithm, $this->encryptionMode);
+        return $this->decrypt(
+            $encryptedString,
+            $this->encryptionKey,
+            $this->encryptionAlgorithm,
+            $this->encryptionMode
+        );
     }
 
     /**
@@ -56,11 +59,11 @@ class ApiDecryptionStripper
      * @return string
      */
     private function decrypt(
-        string $encrypted,
-        string $encryptionKey,
-        string $encryptionAlgorithm,
-        string $encryptionMode
-    ): string {
+        $encrypted,
+        $encryptionKey,
+        $encryptionAlgorithm,
+        $encryptionMode
+    ) {
         $ivSize = mcrypt_get_iv_size($encryptionAlgorithm, $encryptionMode);
 
         $cipherTextAndIv = base64_decode($encrypted);

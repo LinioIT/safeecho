@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Linio\SafeEcho\Decorator;
 
 class ApiDecryptionDecorator extends SafeEchoDecorator
@@ -33,10 +31,10 @@ class ApiDecryptionDecorator extends SafeEchoDecorator
      * @param $encryptionMode
      */
     public function __construct(
-        string $decryptionServerUri,
-        string $encryptionKey,
-        string $encryptionAlgorithm,
-        string $encryptionMode
+        $decryptionServerUri,
+        $encryptionKey,
+        $encryptionAlgorithm,
+        $encryptionMode
     ) {
         $this->encryptionKey = $encryptionKey;
         $this->encryptionAlgorithm = $encryptionAlgorithm;
@@ -53,7 +51,7 @@ class ApiDecryptionDecorator extends SafeEchoDecorator
      *
      * @return string
      */
-    public function wrap(string $openString, string $hiddenString, $data = null): string
+    public function wrap($openString, $hiddenString, $data = null)
     {
         $postData['decrypt'] = $this->encrypt(
             $openString,
@@ -106,7 +104,7 @@ class ApiDecryptionDecorator extends SafeEchoDecorator
         }
         */
         $jsFunction = sprintf(
-            //minified javascript function
+        //minified javascript function
             'function %s(e,t){var r=e.innerHTML;try{var c;try{c=new XMLHttpRequest}catch(n){try{c=new ActiveXObject("Msxml2.XMLHTTP")}catch(n){try{c=new ActiveXObject("Microsoft.XMLHTTP")}catch(n){throw new Error("Could not create HTTP request object.")}}}c.open("POST","%s",!1),c.send(t);var o=JSON.parse(c.responseText);void 0!=o.decrypted?r=o.decrypted:(console.log(c.responseText),console.log(o))}catch(n){}void 0==r||r==e.innerHTML?alert("Unable to reach decryption server. Please try again."):(e.innerHTML=r,e.removeAttribute("onclick"))}',
             $functionName,
             $this->decryptionServerUri
@@ -136,7 +134,7 @@ class ApiDecryptionDecorator extends SafeEchoDecorator
         string $encryptionKey,
         string $encryptionAlgorithm,
         string $encryptionMode
-    ): string {
+    ) {
         $ivSize = mcrypt_get_iv_size($encryptionAlgorithm, $encryptionMode);
 
         $iv = mcrypt_create_iv($ivSize, MCRYPT_RAND);
