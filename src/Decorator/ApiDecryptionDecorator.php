@@ -130,10 +130,10 @@ class ApiDecryptionDecorator extends SafeEchoDecorator
      * @return string
      */
     private function encrypt(
-        string $word,
-        string $encryptionKey,
-        string $encryptionAlgorithm,
-        string $encryptionMode
+         $word,
+         $encryptionKey,
+         $encryptionAlgorithm,
+         $encryptionMode
     ) {
         $ivSize = mcrypt_get_iv_size($encryptionAlgorithm, $encryptionMode);
 

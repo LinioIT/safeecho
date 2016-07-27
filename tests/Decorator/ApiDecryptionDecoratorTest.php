@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Linio\SafeEcho\tests\Decorator;
 
 use Linio\SafeEcho\Decorator\ApiDecryptionDecorator;
