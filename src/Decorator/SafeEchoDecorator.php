@@ -37,7 +37,9 @@ abstract class SafeEchoDecorator
         $hiddenArray = [];
 
         foreach ($wordArray as $word) {
-            $hiddenArray[] = sprintf('%s%s', $word[0], str_repeat($hiddenChar, strlen($word) - 1));
+            if (strlen($word) > 0) {
+                $hiddenArray[] = sprintf('%s%s', $word[0], str_repeat($hiddenChar, strlen($word) - 1));
+            }
         }
 
         return implode(' ', $hiddenArray);
