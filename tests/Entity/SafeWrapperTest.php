@@ -92,7 +92,7 @@ class SafeWrapperTest extends TestCase
     }
 
     /**
-     * @expectedException Error
+     * @expectedException \Error
      * @expectedExceptionMessage No wrapped object defined. Did you forget to call [wrap]?
      */
     public function testNoWrappedObject()
@@ -103,7 +103,7 @@ class SafeWrapperTest extends TestCase
     }
 
     /**
-     * @expectedException Error
+     * @expectedException \Error
      * @expectedExceptionMessage Undefined property Linio\SafeEcho\tests\Entity\Customer::$getDNExist
      */
     public function testPropertyDoesNotExist()
@@ -114,7 +114,7 @@ class SafeWrapperTest extends TestCase
     }
 
     /**
-     * @expectedException Error
+     * @expectedException \Error
      * @expectedExceptionMessage Call to undefined method Linio\SafeEcho\tests\Entity\Customer::getDNExist()
      */
     public function testMethodDoesNotExist()
@@ -125,7 +125,7 @@ class SafeWrapperTest extends TestCase
     }
 
     /**
-     * @expectedException Error
+     * @expectedException \Error
      * @expectedExceptionMessage Only objects can be wrapped
      */
     public function testDoesNotWrapString()
@@ -136,7 +136,7 @@ class SafeWrapperTest extends TestCase
     }
 
     /**
-     * @expectedException Error
+     * @expectedException \Error
      * @expectedExceptionMessage Only objects can be wrapped
      */
     public function testDoesNotWrapArray()
