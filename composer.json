@@ -16,7 +16,7 @@
     },
     "require-dev": {
         "phpunit/phpunit": "5.4.*",
-        "friendsofphp/php-cs-fixer": "~1.12-dev",
+        "friendsofphp/php-cs-fixer": "~2.0",
         "phpunit/php-code-coverage": "^4"
     },
     "config": {
