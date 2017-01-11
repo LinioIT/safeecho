@@ -14,12 +14,7 @@ class ApiDecryptionDecorator extends SafeEchoDecorator
     /**
      * @var
      */
-    private $encryptionAlgorithm;
-
-    /**
-     * @var
-     */
-    private $encryptionMode;
+    private $encryptionMethod;
 
     /**
      * @var string
@@ -29,18 +24,15 @@ class ApiDecryptionDecorator extends SafeEchoDecorator
     /**
      * @param string $decryptionServerUri
      * @param string $encryptionKey
-     * @param $encryptionAlgorithm
-     * @param $encryptionMode
+     * @param string $encryptionMethod
      */
     public function __construct(
         string $decryptionServerUri,
         string $encryptionKey,
-        string $encryptionAlgorithm,
-        string $encryptionMode
+        string $encryptionMethod
     ) {
         $this->encryptionKey = $encryptionKey;
-        $this->encryptionAlgorithm = $encryptionAlgorithm;
-        $this->encryptionMode = $encryptionMode;
+        $this->encryptionMethod = $encryptionMethod;
         $this->decryptionServerUri = $decryptionServerUri;
     }
 
@@ -55,12 +47,7 @@ class ApiDecryptionDecorator extends SafeEchoDecorator
      */
     public function wrap(string $openString, string $hiddenString, $data = null): string
     {
-        $postData['decrypt'] = $this->encrypt(
-            $openString,
-            $this->encryptionKey,
-            $this->encryptionAlgorithm,
-            $this->encryptionMode
-        );
+        $postData['decrypt'] = $this->encrypt($openString);
 
         if (!is_null($data)) {
             $postData['data'] = $data;
@@ -124,24 +111,23 @@ class ApiDecryptionDecorator extends SafeEchoDecorator
     }
 
     /**
-     * @param string $word
-     * @param string $encryptionKey
-     * @param string $encryptionAlgorithm
-     * @param string $encryptionMode
+     * @param string $openString
      *
      * @return string
      */
-    private function encrypt(
-        string $word,
-        string $encryptionKey,
-        string $encryptionAlgorithm,
-        string $encryptionMode
-    ): string {
-        $ivSize = mcrypt_get_iv_size($encryptionAlgorithm, $encryptionMode);
+    private function encrypt(string $openString): string
+    {
+        $ivSize = openssl_cipher_iv_length($this->encryptionMethod);
 
-        $iv = mcrypt_create_iv($ivSize, MCRYPT_RAND);
+        $iv = openssl_random_pseudo_bytes($ivSize);
 
-        $cipherText = mcrypt_encrypt($encryptionAlgorithm, $encryptionKey, $word, $encryptionMode, $iv);
+        $cipherText = openssl_encrypt(
+            $openString,
+            $this->encryptionMethod,
+            $this->encryptionKey,
+            OPENSSL_RAW_DATA,
+            $iv
+        );
 
         return base64_encode($iv . $cipherText);
     }

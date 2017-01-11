@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Linio\SafeEcho\Stripper;
 
 /* This class isn't necessarily meant for usage. Rather, just to show the other side of the ApiDecryptionDecorator. */
+use Exception;
+
 class ApiDecryptionStripper
 {
     /**
@@ -15,26 +17,18 @@ class ApiDecryptionStripper
     /**
      * @var
      */
-    private $encryptionAlgorithm;
-
-    /**
-     * @var
-     */
-    private $encryptionMode;
+    private $encryptionMethod;
 
     /**
      * @param string $encryptionKey
-     * @param $encryptionAlgorithm
-     * @param $encryptionMode
+     * @param string $encryptionMethod
      */
     public function __construct(
         string $encryptionKey,
-        string $encryptionAlgorithm,
-        string $encryptionMode
+        string $encryptionMethod
     ) {
         $this->encryptionKey = $encryptionKey;
-        $this->encryptionAlgorithm = $encryptionAlgorithm;
-        $this->encryptionMode = $encryptionMode;
+        $this->encryptionMethod = $encryptionMethod;
     }
 
     /**
@@ -44,31 +38,38 @@ class ApiDecryptionStripper
      */
     public function unwrap(string $encryptedString): string
     {
-        return $this->decrypt($encryptedString, $this->encryptionKey, $this->encryptionAlgorithm, $this->encryptionMode);
+        return $this->decrypt($encryptedString);
     }
 
     /**
      * @param string $encrypted
-     * @param string $encryptionKey
-     * @param string $encryptionAlgorithm
-     * @param string $encryptionMode
      *
      * @return string
+     *
+     * @throws Exception
      */
-    private function decrypt(
-        string $encrypted,
-        string $encryptionKey,
-        string $encryptionAlgorithm,
-        string $encryptionMode
-    ): string {
-        $ivSize = mcrypt_get_iv_size($encryptionAlgorithm, $encryptionMode);
+    private function decrypt(string $encrypted): string
+    {
+        $encrypted = base64_decode($encrypted);
 
-        $cipherTextAndIv = base64_decode($encrypted);
+        $ivSize = openssl_cipher_iv_length($this->encryptionMethod);
 
-        $cipherText = substr($cipherTextAndIv, $ivSize);
+        $iv = mb_substr($encrypted, 0, $ivSize, '8bit');
 
-        $iv = substr($cipherTextAndIv, 0, $ivSize);
+        $cipherText = mb_substr($encrypted, $ivSize, null, '8bit');
 
-        return rtrim(mcrypt_decrypt($encryptionAlgorithm, $encryptionKey, $cipherText, $encryptionMode, $iv), "\0");
+        $openString = openssl_decrypt(
+            $cipherText,
+            $this->encryptionMethod,
+            $this->encryptionKey,
+            OPENSSL_RAW_DATA,
+            $iv
+        );
+
+        if (!$openString) {
+            throw new Exception('Unable to decrypt. Please check the encryption key and method and try again.');
+        }
+
+        return $openString;
     }
 }

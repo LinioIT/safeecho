@@ -40,8 +40,7 @@ class DecoratorFactoryTest extends TestCase
             'arguments' => [
                 'decryptionServerUri' => 'http://url.url',
                 'encryptionKey' => 'IamAnonSecureEncryptionKey',
-                'encryptionAlgorithm' => MCRYPT_RIJNDAEL_128,
-                'encryptionMode' => MCRYPT_MODE_CBC,
+                'encryptionMethod' => 'AES-256-CBC',
             ],
         ];
         $decorator = DecoratorFactory::create($decoratorConfiguration);

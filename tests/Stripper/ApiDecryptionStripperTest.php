@@ -11,11 +11,13 @@ class ApiDecryptionStripperTest extends TestCase
 {
     public function testUnwrap()
     {
-        $linioWrapper = new ApiDecryptionStripper('NotSoSecretEncryptionKey', MCRYPT_RIJNDAEL_128, MCRYPT_MODE_CBC);
-
-        $encryptionString = '2KNiwlhjq3KpWpUjh5fWuSsLt1LmpTT6WLvRjgjDo7M=';
+        $encryptionKey = 'NotSoSecretEncryptionKey';
+        $encryptionMethod = 'AES-256-CBC';
+        $encryptionString = 'cgcWSy9t476XVthhq5CNYMZTLk/BBGDqH7Q2YjBFBAs=';
 
         $returnString = 'Print me!';
+
+        $linioWrapper = new ApiDecryptionStripper($encryptionKey, $encryptionMethod);
 
         $this->assertStringMatchesFormat($returnString, $linioWrapper->unwrap($encryptionString));
     }
