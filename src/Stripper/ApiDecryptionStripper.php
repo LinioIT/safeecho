@@ -44,9 +44,9 @@ class ApiDecryptionStripper
     /**
      * @param string $encrypted
      *
-     * @return string
-     *
      * @throws Exception
+     *
+     * @return string
      */
     private function decrypt(string $encrypted): string
     {
