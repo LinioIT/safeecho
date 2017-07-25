@@ -78,8 +78,8 @@ Please see [safeecho Configuration File](CONFIG.md) for configuration file examp
 
 ## Testing
 
-```
-phpunit
+```bash
+$ vendor/bin/phpunit
 ```
 
 ## License
