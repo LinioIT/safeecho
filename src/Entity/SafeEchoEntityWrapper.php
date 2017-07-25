@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Linio\SafeEcho\Entity;
 
-use Error;
-
 //TODO: Implement callStatic
+use Exception;
+
 abstract class SafeEchoEntityWrapper
 {
     /**
@@ -30,62 +30,64 @@ abstract class SafeEchoEntityWrapper
      *
      * @param mixed $entity
      *
-     * @throws Error
+     * @throws Exception
      */
     public function wrap($entity): void
     {
         if (!is_object($entity)) {
-            throw new Error('Only objects can be wrapped');
+            throw new Exception('Only objects can be wrapped');
         }
 
         $this->wrappedEntity = $entity;
     }
 
     /**
-     * @throws Error
+     * @throws Exception
      */
     public function __call(string $name, array $arguments = null)
     {
         if (method_exists($this->getWrappedEntity(), $name)) {
             return $this->attemptSafeEcho(call_user_func_array([$this->getWrappedEntity(), $name], $arguments));
         }
-        throw new Error($this->undefinedMethod($name));
+
+        throw new Exception($this->undefinedMethod($name));
     }
 
     /**
-     * @throws Error
+     * @throws Exception
      */
     public function __get(string $name)
     {
         if (property_exists(get_class($this->getWrappedEntity()), $name)) {
             return $this->attemptSafeEcho($this->getWrappedEntity()->$name);
         }
-        throw new Error($this->undefinedProperty($name));
+
+        throw new Exception($this->undefinedProperty($name));
     }
 
     /**
-     * @throws Error
+     * @throws Exception
      */
     public function __set(string $name, $value): void
     {
         if (property_exists(get_class($this->getWrappedEntity()), $name)) {
             $this->getWrappedEntity()->$name = $value;
         } else {
-            throw new Error($this->undefinedProperty($name));
+            throw new Exception($this->undefinedProperty($name));
         }
     }
 
     /**
-     * Gets the entity that is currently wrapped, or throws an Error.
+     * Gets the entity that is currently wrapped, or throws an Exception.
      *
-     * @throws Error
+     * @throws Exception
      *
      * @return mixed
      */
     private function getWrappedEntity()
     {
         if (!isset($this->wrappedEntity)) {
-            throw new Error('No wrapped object defined. Did you forget to call [wrap]?');
+            throw new Exception('No wrapped object defined. Did you forget to call [wrap]?');
         }
 
         return $this->wrappedEntity;
