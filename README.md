@@ -1,6 +1,6 @@
-safeecho
-===
-#Purpose
+# safeecho
+## Purpose
+
 Replacement function for echo/print. It will take the string, hide it and then wrap the new hidden string with whatever wrapper is specified.
 
 `echo John Smith` will print `John Smith`
@@ -12,11 +12,13 @@ With a configuration file
 `safeecho('John Smith')` can print 
 ```<span style="cursor: pointer;" onmouseout="this.innerHTML='J*** S****'" onmouseover="this.innerHTML='John Smith'">J*** S****</span>```
 
-#Installation
+## Installation
+
 The supported way of installing safeecho is via Composer.
 `composer require linio/safeecho`
 
-##Autoload function
+### Autoload function
+
 In the `composer.json` file, add or append to the "autoload" field,
 ```
 "autoload": {
@@ -26,7 +28,8 @@ In the `composer.json` file, add or append to the "autoload" field,
 }
 ```
 
-##Configure safeecho Output
+### Configure safeecho Output
+
 To override the default configuration of `safeecho`, you will need a configuration file.
 
 Accepted file names are:
@@ -41,7 +44,7 @@ Configuration files are searched for in the above order. The first configuration
 
 The recommended location for the configuration is the project root directory.
 
-###Example YML Configurations
+#### Example YML Configurations
 
 `safeecho.yml`
 ```
@@ -73,10 +76,12 @@ decorator:
 
 Please see [safeecho Configuration File](CONFIG.md) for configuration file examples.
 
-#Testing
+## Testing
+
 ```
 phpunit
 ```
 
-#License
+## License
+
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.

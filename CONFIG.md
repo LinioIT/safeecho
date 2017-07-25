@@ -1,7 +1,7 @@
-safeecho Configuration File
-===
-#INI
-####safeecho.ini
+# safeecho Configuration File
+## INI
+### safeecho.ini
+
 Example 1:
 ```
 decorator = Linio\SafeEcho\Decorator\MouseHoverDecorator
@@ -20,8 +20,9 @@ arguments[encryptionAlgorithm] = rijndael-128
 arguments[encryptionMode] = cbc
 ```
 
-#JSON
-####safeecho.json
+## JSON
+### safeecho.json
+
 Example 1:
 ```
 {
@@ -46,8 +47,9 @@ Example 2:
 }
 ```
 
-#PHP
-####safeecho.php
+## PHP
+### safeecho.php
+
 Example 1:
 ```
 <?php
@@ -75,8 +77,9 @@ return [
 
 ```
 
-#XML
-####safeecho.xml
+## XML
+### safeecho.xml
+
 Example 1:
 ```
 <?xml version="1.0" encoding="UTF-8"?>
@@ -103,8 +106,9 @@ Example 2:
 </config>
 ```
 
-#YAML or YML
-####safeecho.yaml or safeecho.yml
+## YAML or YML
+### safeecho.yaml or safeecho.yml
+
 Example 1:
 ```
 decorator: Linio\SafeEcho\Decorator\MouseHoverDecorator
