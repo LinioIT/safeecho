@@ -15,7 +15,9 @@ With a configuration file
 ## Installation
 
 The supported way of installing safeecho is via Composer.
-`composer require linio/safeecho`
+```bash
+$ composer require linio/safeecho
+```
 
 ### Autoload function
 
