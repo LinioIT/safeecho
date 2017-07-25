@@ -19,11 +19,11 @@ pipeline {
             steps {
                 parallel(
                     "php-cs-fixer": {
-                        sh "php bin/php-cs-fixer fix --dry-run -vv"
+                        sh "php vendor/bin/php-cs-fixer fix --dry-run -vv"
                     },
 
                     "phpunit": {
-                        sh "php bin/phpunit --log-junit junit_report.xml"
+                        sh "php vendor/bin/phpunit --log-junit junit_report.xml"
                     }
                 )
             }
