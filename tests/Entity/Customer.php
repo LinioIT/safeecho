@@ -21,7 +21,7 @@ class Customer
         return $this->id;
     }
 
-    public function setId($id)
+    public function setId($id): void
     {
         $this->id = $id;
     }
@@ -31,7 +31,7 @@ class Customer
         return $this->sentence;
     }
 
-    public function setSentence($sentence)
+    public function setSentence($sentence): void
     {
         $this->sentence = $sentence;
     }

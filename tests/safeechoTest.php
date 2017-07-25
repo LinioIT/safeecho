@@ -10,21 +10,21 @@ use PHPUnit\Framework\TestCase;
 
 class safeechoTest extends TestCase
 {
-    public function testObjectIsReturned()
+    public function testObjectIsReturned(): void
     {
         $customer = new Customer(987654321, 'a sentence 4 you!');
 
         $this->assertEquals($customer, safeecho($customer, null, true));
     }
 
-    public function testArrayIsReturned()
+    public function testArrayIsReturned(): void
     {
         $array = ['thing1' => 'pinky', 'thing2' => 'brain'];
 
         $this->assertEquals($array, safeecho($array, null, true));
     }
 
-    public function testObjectIsDumped()
+    public function testObjectIsDumped(): void
     {
         $customer = new Customer(987654321, 'a sentence 4 you!');
 
@@ -33,7 +33,7 @@ class safeechoTest extends TestCase
         safeecho($customer);
     }
 
-    public function testArrayIsDumped()
+    public function testArrayIsDumped(): void
     {
         $array = ['thing1' => 'pinky', 'thing2' => 'brain'];
 
@@ -42,7 +42,7 @@ class safeechoTest extends TestCase
         safeecho($array);
     }
 
-    public function testStringIsReturned()
+    public function testStringIsReturned(): void
     {
         $string = 'Print me!';
         $hiddenString = 'P**** m**';
@@ -50,7 +50,7 @@ class safeechoTest extends TestCase
         $this->assertEquals($hiddenString, safeecho($string, null, true));
     }
 
-    public function testStringIsDumped()
+    public function testStringIsDumped(): void
     {
         $string = 'Print me!';
         $hiddenString = 'P**** m**';
@@ -60,7 +60,7 @@ class safeechoTest extends TestCase
         safeecho($string);
     }
 
-    public function testIntegerIsReturned()
+    public function testIntegerIsReturned(): void
     {
         $string = 987654321;
         $hiddenString = '9********';
@@ -68,7 +68,7 @@ class safeechoTest extends TestCase
         $this->assertEquals($hiddenString, safeecho($string, null, true));
     }
 
-    public function testIntegerIsDumped()
+    public function testIntegerIsDumped(): void
     {
         $string = 987654321;
         $hiddenString = '9********';
@@ -78,7 +78,7 @@ class safeechoTest extends TestCase
         safeecho($string);
     }
 
-    public function testFloatIsReturned()
+    public function testFloatIsReturned(): void
     {
         $string = 1.2;
         $hiddenString = '1**';
@@ -86,7 +86,7 @@ class safeechoTest extends TestCase
         $this->assertEquals($hiddenString, safeecho($string, null, true));
     }
 
-    public function testFloatIsDumped()
+    public function testFloatIsDumped(): void
     {
         $string = 1.2;
         $hiddenString = '1**';
@@ -96,7 +96,7 @@ class safeechoTest extends TestCase
         safeecho($string);
     }
 
-    public function testOutputWithConfigFile()
+    public function testOutputWithConfigFile(): void
     {
         $config = json_encode(
             [
@@ -120,7 +120,7 @@ class safeechoTest extends TestCase
         unlink(__DIR__ . '/../safeecho.json');
     }
 
-    public function testReturnWithConfigFile()
+    public function testReturnWithConfigFile(): void
     {
         $config = json_encode(
             [

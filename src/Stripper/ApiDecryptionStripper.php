@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Linio\SafeEcho\Stripper;
 
-/* This class isn't necessarily meant for usage. Rather, just to show the other side of the ApiDecryptionDecorator. */
+// This class isn't necessarily meant for usage. Rather, just to show the other side of the ApiDecryptionDecorator.
 use Exception;
 
 class ApiDecryptionStripper

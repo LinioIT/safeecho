@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class ApiDecryptionDecoratorTest extends TestCase
 {
-    public function testWrap()
+    public function testWrap(): void
     {
         $linioWrapper = new ApiDecryptionDecorator('http://url.url', 'NotSoSecretEncryptionKey', 'AES-256-CBC');
 
@@ -25,7 +25,7 @@ class ApiDecryptionDecoratorTest extends TestCase
         $this->assertRegExp($span, $linioWrapper->wrap($openString, $hiddenString));
     }
 
-    public function testWrapWithData()
+    public function testWrapWithData(): void
     {
         $linioWrapper = new ApiDecryptionDecorator('http://url.url', 'NotSoSecretEncryptionKey', 'AES-256-CBC');
 

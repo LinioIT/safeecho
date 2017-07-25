@@ -37,7 +37,7 @@ class ConfigurationFactory
     {
         $configuration = self::recurseExtensions();
 
-        if (!is_null($configuration)) {
+        if ($configuration !== null) {
             return new SafeEchoDefaultConfig($configuration->all());
         }
 
@@ -62,8 +62,6 @@ class ConfigurationFactory
                 return self::recurseExtensions(++$idx);
             }
         }
-
-        return;
     }
 
     /**

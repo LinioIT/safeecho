@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
 
 class ConfigurationFactoryTest extends TestCase
 {
-    public function testCreatesDefaultConfiguration()
+    public function testCreatesDefaultConfiguration(): void
     {
         $configuration = ConfigurationFactory::create();
 

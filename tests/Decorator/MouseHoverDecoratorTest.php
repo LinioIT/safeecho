@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class MouseHoverDecoratorTest extends TestCase
 {
-    public function testWrap()
+    public function testWrap(): void
     {
         $linioWrapper = new MouseHoverDecorator();
 

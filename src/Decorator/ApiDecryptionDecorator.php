@@ -49,7 +49,7 @@ class ApiDecryptionDecorator extends SafeEchoDecorator
     {
         $postData['decrypt'] = $this->encrypt($openString);
 
-        if (!is_null($data)) {
+        if ($data !== null) {
             $postData['data'] = $data;
         }
 

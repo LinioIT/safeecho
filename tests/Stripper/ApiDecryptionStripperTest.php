@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class ApiDecryptionStripperTest extends TestCase
 {
-    public function testUnwrap()
+    public function testUnwrap(): void
     {
         $encryptionKey = 'NotSoSecretEncryptionKey';
         $encryptionMethod = 'AES-256-CBC';

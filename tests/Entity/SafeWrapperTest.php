@@ -28,7 +28,7 @@ class SafeWrapperTest extends TestCase
         return $safeCustomer;
     }
 
-    public function testOverrideNonObjectMethodOutput()
+    public function testOverrideNonObjectMethodOutput(): void
     {
         $safeCustomer = $this->getSafeCustomer(
             987654321,
@@ -42,7 +42,7 @@ class SafeWrapperTest extends TestCase
         );
     }
 
-    public function testOverrideNonObjectPropertyOutput()
+    public function testOverrideNonObjectPropertyOutput(): void
     {
         $safeCustomer = $this->getSafeCustomer(
             987654321,
@@ -56,7 +56,7 @@ class SafeWrapperTest extends TestCase
         );
     }
 
-    public function testOverrideNonObjectPropertySet()
+    public function testOverrideNonObjectPropertySet(): void
     {
         $safeCustomer = $this->getSafeCustomer(
             987654321,
@@ -73,7 +73,7 @@ class SafeWrapperTest extends TestCase
         );
     }
 
-    public function testFunctionalMethodsStillWork()
+    public function testFunctionalMethodsStillWork(): void
     {
         $safeCustomer = $this->getSafeCustomer(
             0,
@@ -93,7 +93,7 @@ class SafeWrapperTest extends TestCase
      * @expectedException \Error
      * @expectedExceptionMessage No wrapped object defined. Did you forget to call [wrap]?
      */
-    public function testNoWrappedObject()
+    public function testNoWrappedObject(): void
     {
         $safeCustomer = new SafeWrapper();
 
@@ -104,7 +104,7 @@ class SafeWrapperTest extends TestCase
      * @expectedException \Error
      * @expectedExceptionMessage Undefined property Linio\SafeEcho\Entity\Customer::$getDNExist
      */
-    public function testPropertyDoesNotExist()
+    public function testPropertyDoesNotExist(): void
     {
         $safeCustomer = $this->getSafeCustomer(1, 'sentence');
 
@@ -115,7 +115,7 @@ class SafeWrapperTest extends TestCase
      * @expectedException \Error
      * @expectedExceptionMessage Call to undefined method Linio\SafeEcho\Entity\Customer::getDNExist()
      */
-    public function testMethodDoesNotExist()
+    public function testMethodDoesNotExist(): void
     {
         $safeCustomer = $this->getSafeCustomer(1, 'sentence');
 
@@ -126,7 +126,7 @@ class SafeWrapperTest extends TestCase
      * @expectedException \Error
      * @expectedExceptionMessage Only objects can be wrapped
      */
-    public function testDoesNotWrapString()
+    public function testDoesNotWrapString(): void
     {
         $safeCustomer = new SafeWrapper();
 
@@ -137,7 +137,7 @@ class SafeWrapperTest extends TestCase
      * @expectedException \Error
      * @expectedExceptionMessage Only objects can be wrapped
      */
-    public function testDoesNotWrapArray()
+    public function testDoesNotWrapArray(): void
     {
         $safeCustomer = new SafeWrapper();
 

@@ -15,14 +15,14 @@ use PHPUnit\Framework\TestCase;
  */
 class SafeEchoDefaultConfigTest extends TestCase
 {
-    public function testIsAbstractConfig()
+    public function testIsAbstractConfig(): void
     {
         $safeEchoDefaultConfig = new SafeEchoDefaultConfig([]);
 
         $this->assertInstanceOf(AbstractConfig::class, $safeEchoDefaultConfig);
     }
 
-    public function testHasDefaults()
+    public function testHasDefaults(): void
     {
         $safeEchoDefaultConfig = new SafeEchoDefaultConfig([]);
 
@@ -30,7 +30,7 @@ class SafeEchoDefaultConfigTest extends TestCase
         $this->assertEquals('*', $safeEchoDefaultConfig->get('hideChar'));
     }
 
-    public function testFillsMissingDefaults()
+    public function testFillsMissingDefaults(): void
     {
         $safeEchoDefaultConfig = new SafeEchoDefaultConfig(['decorator' => ApiDecryptionDecorator::class]);
 
@@ -38,7 +38,7 @@ class SafeEchoDefaultConfigTest extends TestCase
         $this->assertEquals('*', $safeEchoDefaultConfig->get('hideChar'));
     }
 
-    public function testOverridesDefaults()
+    public function testOverridesDefaults(): void
     {
         $safeEchoDefaultConfig = new SafeEchoDefaultConfig(['decorator' => ApiDecryptionDecorator::class, 'hideChar' => '!']);
 

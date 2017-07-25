@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class NoWrapDecoratorTest extends TestCase
 {
-    public function testWrap()
+    public function testWrap(): void
     {
         $noWrapper = new NoWrapDecorator();
 
@@ -19,7 +19,7 @@ class NoWrapDecoratorTest extends TestCase
         $this->assertEquals($hiddenString, $noWrapper->wrap($openString, $hiddenString));
     }
 
-    public function testHide()
+    public function testHide(): void
     {
         $noWrapper = new NoWrapDecorator();
 
@@ -30,7 +30,7 @@ class NoWrapDecoratorTest extends TestCase
         $this->assertEquals($hiddenString, $noWrapper->hide($openString));
     }
 
-    public function testHideChangeChar()
+    public function testHideChangeChar(): void
     {
         $noWrapper = new NoWrapDecorator();
 

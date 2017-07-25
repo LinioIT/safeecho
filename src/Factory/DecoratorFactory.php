@@ -27,7 +27,7 @@ class DecoratorFactory
             $decorator = self::createFromArray($decoratorConfiguration);
         }
 
-        if (is_null($decorator)) {
+        if ($decorator === null) {
             throw new InvalidConfigurationFileException('Cannot configure decorator.');
         }
 
@@ -48,8 +48,6 @@ class DecoratorFactory
         if (class_exists($decoratorClassName)) {
             return new $decoratorClassName();
         }
-
-        return;
     }
 
     /**
@@ -72,7 +70,5 @@ class DecoratorFactory
                 return $reflection->newInstanceArgs();
             }
         }
-
-        return;
     }
 }

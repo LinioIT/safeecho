@@ -32,7 +32,7 @@ abstract class SafeEchoEntityWrapper
      *
      * @throws Error
      */
-    public function wrap($entity)
+    public function wrap($entity): void
     {
         if (!is_object($entity)) {
             throw new Error('Only objects can be wrapped');
@@ -42,39 +42,31 @@ abstract class SafeEchoEntityWrapper
     }
 
     /**
-     * {@inheritdoc}
-     *
      * @throws Error
      */
     public function __call(string $name, array $arguments = null)
     {
         if (method_exists($this->getWrappedEntity(), $name)) {
             return $this->attemptSafeEcho(call_user_func_array([$this->getWrappedEntity(), $name], $arguments));
-        } else {
-            throw new Error($this->undefinedMethod($name));
         }
+        throw new Error($this->undefinedMethod($name));
     }
 
     /**
-     * {@inheritdoc}
-     *
      * @throws Error
      */
     public function __get(string $name)
     {
         if (property_exists(get_class($this->getWrappedEntity()), $name)) {
             return $this->attemptSafeEcho($this->getWrappedEntity()->$name);
-        } else {
-            throw new Error($this->undefinedProperty($name));
         }
+        throw new Error($this->undefinedProperty($name));
     }
 
     /**
-     * {@inheritdoc}
-     *
      * @throws Error
      */
-    public function __set(string $name, $value)
+    public function __set(string $name, $value): void
     {
         if (property_exists(get_class($this->getWrappedEntity()), $name)) {
             $this->getWrappedEntity()->$name = $value;

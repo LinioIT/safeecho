@@ -12,7 +12,7 @@ use PHPUnit\Framework\TestCase;
 
 class DecoratorFactoryTest extends TestCase
 {
-    public function testCreatesDecoratorFromString()
+    public function testCreatesDecoratorFromString(): void
     {
         $decoratorConfiguration = MouseHoverDecorator::class;
         $decorator = DecoratorFactory::create($decoratorConfiguration);
@@ -21,7 +21,7 @@ class DecoratorFactoryTest extends TestCase
         $this->assertInstanceOf(MouseHoverDecorator::class, $decorator);
     }
 
-    public function testCreatesDecoratorFromArrayWithNoArguments()
+    public function testCreatesDecoratorFromArrayWithNoArguments(): void
     {
         $decoratorConfiguration = [
             'class' => MouseHoverDecorator::class,
@@ -32,7 +32,7 @@ class DecoratorFactoryTest extends TestCase
         $this->assertInstanceOf(MouseHoverDecorator::class, $decorator);
     }
 
-    public function testCreatesDecoratorFromArray()
+    public function testCreatesDecoratorFromArray(): void
     {
         $decoratorConfiguration = [
             'class' => ApiDecryptionDecorator::class,
@@ -51,7 +51,7 @@ class DecoratorFactoryTest extends TestCase
     /**
      * @expectedException \Linio\SafeEcho\Exception\InvalidConfigurationFileException
      */
-    public function testExceptionWhenNotSafeEchoDecorator()
+    public function testExceptionWhenNotSafeEchoDecorator(): void
     {
         $decoratorConfiguration = Exception::class;
         DecoratorFactory::create($decoratorConfiguration);
@@ -61,7 +61,7 @@ class DecoratorFactoryTest extends TestCase
      * @expectedException \Linio\SafeEcho\Exception\InvalidConfigurationFileException
      * @expectedExceptionMessage Cannot configure decorator.
      */
-    public function testExceptionOnNull()
+    public function testExceptionOnNull(): void
     {
         DecoratorFactory::create(null);
     }
@@ -69,7 +69,7 @@ class DecoratorFactoryTest extends TestCase
     /**
      * @expectedException \Linio\SafeEcho\Exception\InvalidConfigurationFileException
      */
-    public function testExceptionOnClassDoesNotExistFromString()
+    public function testExceptionOnClassDoesNotExistFromString(): void
     {
         $decoratorConfiguration = 'Path\Does\Not\Exist';
         DecoratorFactory::create($decoratorConfiguration);
@@ -78,7 +78,7 @@ class DecoratorFactoryTest extends TestCase
     /**
      * @expectedException \Linio\SafeEcho\Exception\InvalidConfigurationFileException
      */
-    public function testExceptionOnClassDoesNotExistFromArray()
+    public function testExceptionOnClassDoesNotExistFromArray(): void
     {
         $decoratorConfiguration = [
             'class' => 'Path\Does\Not\Exist',
@@ -89,7 +89,7 @@ class DecoratorFactoryTest extends TestCase
     /**
      * @expectedException \Linio\SafeEcho\Exception\InvalidConfigurationFileException
      */
-    public function testExceptionOnEmptyArray()
+    public function testExceptionOnEmptyArray(): void
     {
         DecoratorFactory::create([]);
     }
