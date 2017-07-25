@@ -3,6 +3,7 @@
 /bin/
 /.idea
 /phpunit.xml
+/composer.lock
 
 # Misc.
 .php_cs.cache
