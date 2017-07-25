@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Linio\SafeEcho\tests;
+namespace Linio\SafeEcho;
 
 use Linio\SafeEcho\Decorator\MouseHoverDecorator;
-use Linio\SafeEcho\tests\Entity\Customer;
+use Linio\SafeEcho\Entity\Customer;
 use PHPUnit\Framework\TestCase;
 
 class safeechoTest extends TestCase

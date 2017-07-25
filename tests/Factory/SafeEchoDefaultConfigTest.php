@@ -2,11 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Linio\SafeEcho\tests\Factory;
+namespace Linio\SafeEcho\Factory;
 
 use Linio\SafeEcho\Decorator\ApiDecryptionDecorator;
 use Linio\SafeEcho\Decorator\NoWrapDecorator;
-use Linio\SafeEcho\Factory\SafeEchoDefaultConfig;
 use Noodlehaus\AbstractConfig;
 use PHPUnit\Framework\TestCase;
 

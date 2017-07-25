@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Linio\SafeEcho\tests\Entity;
+namespace Linio\SafeEcho\Entity;
 
 class Customer
 {

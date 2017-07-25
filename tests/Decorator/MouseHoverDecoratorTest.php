@@ -2,9 +2,8 @@
 
 declare(strict_types=1);
 
-namespace Linio\SafeEcho\tests\Decorator;
+namespace Linio\SafeEcho\Decorator;
 
-use Linio\SafeEcho\Decorator\MouseHoverDecorator;
 use PHPUnit\Framework\TestCase;
 
 class MouseHoverDecoratorTest extends TestCase

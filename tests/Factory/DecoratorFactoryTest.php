@@ -2,13 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Linio\SafeEcho\tests\Factory;
+namespace Linio\SafeEcho\Factory;
 
 use Exception;
 use Linio\SafeEcho\Decorator\ApiDecryptionDecorator;
 use Linio\SafeEcho\Decorator\MouseHoverDecorator;
 use Linio\SafeEcho\Decorator\SafeEchoDecorator;
-use Linio\SafeEcho\Factory\DecoratorFactory;
 use PHPUnit\Framework\TestCase;
 
 class DecoratorFactoryTest extends TestCase

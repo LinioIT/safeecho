@@ -2,11 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Linio\SafeEcho\tests\Factory;
+namespace Linio\SafeEcho\Factory;
 
 use Linio\SafeEcho\Decorator\NoWrapDecorator;
-use Linio\SafeEcho\Factory\ConfigurationFactory;
-use Linio\SafeEcho\Factory\SafeEchoDefaultConfig;
 use PHPUnit\Framework\TestCase;
 
 class ConfigurationFactoryTest extends TestCase

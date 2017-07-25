@@ -25,7 +25,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Linio\\SafeEcho\\tests\\": "tests/"
+            "Linio\\SafeEcho\\": "tests/"
         }
     }
 }

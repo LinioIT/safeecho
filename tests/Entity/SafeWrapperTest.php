@@ -2,11 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Linio\SafeEcho\tests\Entity;
+namespace Linio\SafeEcho\Entity;
 
 use Error;
-use Linio\SafeEcho\Entity\SafeEchoEntityWrapper;
-use Linio\SafeEcho\Entity\SafeWrapper;
 use PHPUnit\Framework\TestCase;
 
 class SafeWrapperTest extends TestCase
@@ -104,7 +102,7 @@ class SafeWrapperTest extends TestCase
 
     /**
      * @expectedException \Error
-     * @expectedExceptionMessage Undefined property Linio\SafeEcho\tests\Entity\Customer::$getDNExist
+     * @expectedExceptionMessage Undefined property Linio\SafeEcho\Entity\Customer::$getDNExist
      */
     public function testPropertyDoesNotExist()
     {
@@ -115,7 +113,7 @@ class SafeWrapperTest extends TestCase
 
     /**
      * @expectedException \Error
-     * @expectedExceptionMessage Call to undefined method Linio\SafeEcho\tests\Entity\Customer::getDNExist()
+     * @expectedExceptionMessage Call to undefined method Linio\SafeEcho\Entity\Customer::getDNExist()
      */
     public function testMethodDoesNotExist()
     {

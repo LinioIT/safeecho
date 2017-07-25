@@ -2,9 +2,8 @@
 
 declare(strict_types=1);
 
-namespace Linio\SafeEcho\tests\Stripper;
+namespace Linio\SafeEcho\Stripper;
 
-use Linio\SafeEcho\Stripper\ApiDecryptionStripper;
 use PHPUnit\Framework\TestCase;
 
 class ApiDecryptionStripperTest extends TestCase
