@@ -8,12 +8,6 @@ class MouseHoverDecorator extends SafeEchoDecorator
 {
     /**
      * Sets the wrapped hiddenString for safe output.
-     *
-     * @param string $openString
-     * @param string $hiddenString
-     * @param null $data
-     *
-     * @return string
      */
     public function wrap(string $openString, string $hiddenString, $data = null): string
     {

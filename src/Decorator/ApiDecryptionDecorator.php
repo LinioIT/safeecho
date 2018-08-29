@@ -21,11 +21,6 @@ class ApiDecryptionDecorator extends SafeEchoDecorator
      */
     private $decryptionServerUri;
 
-    /**
-     * @param string $decryptionServerUri
-     * @param string $encryptionKey
-     * @param string $encryptionMethod
-     */
     public function __construct(
         string $decryptionServerUri,
         string $encryptionKey,
@@ -38,12 +33,6 @@ class ApiDecryptionDecorator extends SafeEchoDecorator
 
     /**
      * Sets the wrapped hiddenString for safe output.
-     *
-     * @param string $openString
-     * @param string $hiddenString
-     * @param null $data
-     *
-     * @return string
      */
     public function wrap(string $openString, string $hiddenString, $data = null): string
     {
@@ -110,11 +99,6 @@ class ApiDecryptionDecorator extends SafeEchoDecorator
         );
     }
 
-    /**
-     * @param string $openString
-     *
-     * @return string
-     */
     private function encrypt(string $openString): string
     {
         $ivSize = openssl_cipher_iv_length($this->encryptionMethod);

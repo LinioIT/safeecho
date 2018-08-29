@@ -9,18 +9,11 @@ abstract class SafeEchoDecorator
     /**
      * Sets the wrapped hiddenString for safe output.
      *
-     * @param string $openString
-     * @param string $hiddenString
      * @param mixed|null $data
-     *
-     * @return string
      */
     abstract public function wrap(string $openString, string $hiddenString, $data = null): string;
 
     /**
-     * @param string $string
-     * @param string $hiddenChar
-     *
      * @return string
      */
     public function hide(string $string, string $hiddenChar = '*')

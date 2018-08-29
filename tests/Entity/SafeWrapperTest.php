@@ -89,56 +89,51 @@ class SafeWrapperTest extends TestCase
         $this->assertEquals('L**** s** s******** @***', $safeCustomer->sentence);
     }
 
-    /**
-     * @expectedException \Exception
-     * @expectedExceptionMessage No wrapped object defined. Did you forget to call [wrap]?
-     */
     public function testNoWrappedObject(): void
     {
+        $this->expectException(\Exception::class);
+        $this->expectExceptionMessage('No wrapped object defined. Did you forget to call [wrap]?');
+
         $safeCustomer = new SafeWrapper();
 
         $safeCustomer->getId();
     }
 
-    /**
-     * @expectedException \Exception
-     * @expectedExceptionMessage Undefined property Linio\SafeEcho\Entity\Customer::$getDNExist
-     */
     public function testPropertyDoesNotExist(): void
     {
+        $this->expectException(\Exception::class);
+        $this->expectExceptionMessage('Undefined property Linio\\SafeEcho\\Entity\\Customer::$getDNExist');
+
         $safeCustomer = $this->getSafeCustomer(1, 'sentence');
 
         $safeCustomer->getDNExist;
     }
 
-    /**
-     * @expectedException \Exception
-     * @expectedExceptionMessage Call to undefined method Linio\SafeEcho\Entity\Customer::getDNExist()
-     */
     public function testMethodDoesNotExist(): void
     {
+        $this->expectException(\Exception::class);
+        $this->expectExceptionMessage('Call to undefined method Linio\\SafeEcho\\Entity\\Customer::getDNExist()');
+
         $safeCustomer = $this->getSafeCustomer(1, 'sentence');
 
         $safeCustomer->getDNExist();
     }
 
-    /**
-     * @expectedException \Exception
-     * @expectedExceptionMessage Only objects can be wrapped
-     */
     public function testDoesNotWrapString(): void
     {
+        $this->expectException(\Exception::class);
+        $this->expectExceptionMessage('Only objects can be wrapped');
+
         $safeCustomer = new SafeWrapper();
 
         $safeCustomer->wrap('nothing');
     }
 
-    /**
-     * @expectedException \Exception
-     * @expectedExceptionMessage Only objects can be wrapped
-     */
     public function testDoesNotWrapArray(): void
     {
+        $this->expectException(\Exception::class);
+        $this->expectExceptionMessage('Only objects can be wrapped');
+
         $safeCustomer = new SafeWrapper();
 
         $safeCustomer->wrap([]);

@@ -18,17 +18,12 @@ abstract class SafeEchoEntityWrapper
      * Define how to handle safeecho call.
      *
      * Example 1: return safeecho($return, ***set data*** , true);
-     *
-     * @param mixed $return
-     *
-     * @return mixed
      */
     abstract protected function attemptSafeEcho($return);
 
     /**
      * Sets the wrapped entity for safe output.
      *
-     * @param mixed $entity
      *
      * @throws Exception
      */
@@ -79,8 +74,6 @@ abstract class SafeEchoEntityWrapper
      * Gets the entity that is currently wrapped, or throws an Exception.
      *
      * @throws Exception
-     *
-     * @return mixed
      */
     private function getWrappedEntity()
     {
@@ -91,21 +84,11 @@ abstract class SafeEchoEntityWrapper
         return $this->wrappedEntity;
     }
 
-    /**
-     * @param string $name
-     *
-     * @return string
-     */
     private function undefinedMethod(string $name): string
     {
         return sprintf('Call to undefined method %s::%s()', get_class($this->wrappedEntity), $name);
     }
 
-    /**
-     * @param string $name
-     *
-     * @return string
-     */
     private function undefinedProperty(string $name): string
     {
         return sprintf('Undefined property %s::$%s', get_class($this->wrappedEntity), $name);

@@ -48,49 +48,44 @@ class DecoratorFactoryTest extends TestCase
         $this->assertInstanceOf(ApiDecryptionDecorator::class, $decorator);
     }
 
-    /**
-     * @expectedException \Linio\SafeEcho\Exception\InvalidConfigurationFileException
-     */
     public function testExceptionWhenNotSafeEchoDecorator(): void
     {
+        $this->expectException(\Linio\SafeEcho\Exception\InvalidConfigurationFileException::class);
+
         $decoratorConfiguration = Exception::class;
         DecoratorFactory::create($decoratorConfiguration);
     }
 
-    /**
-     * @expectedException \Linio\SafeEcho\Exception\InvalidConfigurationFileException
-     * @expectedExceptionMessage Cannot configure decorator.
-     */
     public function testExceptionOnNull(): void
     {
+        $this->expectException(\Linio\SafeEcho\Exception\InvalidConfigurationFileException::class);
+        $this->expectExceptionMessage('Cannot configure decorator.');
+
         DecoratorFactory::create(null);
     }
 
-    /**
-     * @expectedException \Linio\SafeEcho\Exception\InvalidConfigurationFileException
-     */
     public function testExceptionOnClassDoesNotExistFromString(): void
     {
+        $this->expectException(\Linio\SafeEcho\Exception\InvalidConfigurationFileException::class);
+
         $decoratorConfiguration = 'Path\Does\Not\Exist';
         DecoratorFactory::create($decoratorConfiguration);
     }
 
-    /**
-     * @expectedException \Linio\SafeEcho\Exception\InvalidConfigurationFileException
-     */
     public function testExceptionOnClassDoesNotExistFromArray(): void
     {
+        $this->expectException(\Linio\SafeEcho\Exception\InvalidConfigurationFileException::class);
+
         $decoratorConfiguration = [
             'class' => 'Path\Does\Not\Exist',
         ];
         DecoratorFactory::create($decoratorConfiguration);
     }
 
-    /**
-     * @expectedException \Linio\SafeEcho\Exception\InvalidConfigurationFileException
-     */
     public function testExceptionOnEmptyArray(): void
     {
+        $this->expectException(\Linio\SafeEcho\Exception\InvalidConfigurationFileException::class);
+
         DecoratorFactory::create([]);
     }
 }
