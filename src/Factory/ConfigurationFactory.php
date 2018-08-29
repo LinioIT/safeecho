@@ -30,8 +30,6 @@ class ConfigurationFactory
      * Retrieves the Configuration.
      *
      * @throws FileNotFoundException
-     *
-     * @return SafeEchoDefaultConfig
      */
     public static function create(): SafeEchoDefaultConfig
     {
@@ -47,7 +45,6 @@ class ConfigurationFactory
     /**
      * Recursively try all the possible combinations of the configuration file. Return the first successful match.
      *
-     * @param int $idx
      *
      * @return AbstractConfig|null
      */

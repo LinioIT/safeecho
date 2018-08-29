@@ -11,11 +11,7 @@ use ReflectionClass;
 class DecoratorFactory
 {
     /**
-     * @param mixed $decoratorConfiguration
-     *
      * @throws InvalidConfigurationFileException
-     *
-     * @return SafeEchoDecorator
      */
     public static function create($decoratorConfiguration): SafeEchoDecorator
     {
@@ -39,8 +35,6 @@ class DecoratorFactory
     }
 
     /**
-     * @param string $decoratorClassName
-     *
      * @return SafeEchoDecorator|null
      */
     private static function createFromString(string $decoratorClassName)
@@ -51,8 +45,6 @@ class DecoratorFactory
     }
 
     /**
-     * @param array $decoratorConfiguration
-     *
      * @return SafeEchoDecorator|null
      */
     private static function createFromArray(array $decoratorConfiguration)

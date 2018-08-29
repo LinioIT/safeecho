@@ -19,10 +19,6 @@ class ApiDecryptionStripper
      */
     private $encryptionMethod;
 
-    /**
-     * @param string $encryptionKey
-     * @param string $encryptionMethod
-     */
     public function __construct(
         string $encryptionKey,
         string $encryptionMethod
@@ -31,22 +27,13 @@ class ApiDecryptionStripper
         $this->encryptionMethod = $encryptionMethod;
     }
 
-    /**
-     * @param string $encryptedString
-     *
-     * @return string
-     */
     public function unwrap(string $encryptedString): string
     {
         return $this->decrypt($encryptedString);
     }
 
     /**
-     * @param string $encrypted
-     *
      * @throws Exception
-     *
-     * @return string
      */
     private function decrypt(string $encrypted): string
     {
